@@ -1,26 +1,21 @@
 import React from "react";
-import "./Home.css";
-import { CiStar } from "react-icons/ci";
-import { CiSearch } from "react-icons/ci";
+import "./Home.scss";
+import logo from './Yg6I.gif'
 
 const Home = () => {
     return (
         <div className="Home-Container">
             <div className="rigth__side">
-                <p className="home__p">
-                <CiStar className="star__icon"/>
-                Start your reading journey today
-                </p>
-                <h1 className="home__h1">
-                    Where every page is a new Adventure
-                </h1>
+                <h1>Magic Library</h1>
+                <h3 className="home__h1">
+                    Where every page is <br /> a new Adventure
+                </h3>
                 <div className="search--area">
-                    <CiSearch className="icon__search"/>
-                    <input className="input__area" type="text" placeholder="Search Books"/>
+                    <button className="btn__mbks">My Books</button>
                 </div>
             </div>
             <div className="left__side">
-                <img src="./images/home__img.png" alt="icon" />
+                <img src={logo} alt="icon" className="logo"/>
             </div>
         </div>
     )
