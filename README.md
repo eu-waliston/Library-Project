@@ -4,7 +4,7 @@
   - ReactJs
   - React icons
   - Google Fonts
-  - sass
+  - Sass
 
 ### No Back:
   - NodeJs
