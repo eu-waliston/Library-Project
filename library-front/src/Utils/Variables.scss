@@ -1,9 +1,22 @@
 //Colors
 $bg--home--color: #C3EBF5;
 $btn--color: #0E9682;
+$text--color-1: #ffffff;
+$text--color-2: #5F64B2;
 
 //Images
 $home--image: url('../../public/images/peakpx.jpg');
+
+//Fonts
+@font-face {
+    font-family: 'Jhal-Muri';
+    src: url("../../public/fonts/Jhal-Muri.otf")
+}
+
+$normal--font: "Poppins", sans-serif;
+$fantasy--font: "Jhal-Muri" ,sans-serif;
+
+
 
 //Breaking points
 
