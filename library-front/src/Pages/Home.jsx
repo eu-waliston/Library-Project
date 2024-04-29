@@ -1,6 +1,7 @@
 import React from "react";
 import "./Home.scss";
 import 'animate.css';
+import { Link } from "react-router-dom";
 
 const Home = () => {
     return (
@@ -11,7 +12,7 @@ const Home = () => {
                     Where every page is a new Adventure
                 </h3>
                 <div className="search--area animate__animated animate__bounce animate__delay-2s animate__slow animate__infinite">
-                    <button className=" btn__mbks">My Books</button>
+                    <Link className="btn__mbks" to={"/magic-labrary/front/login"}>My Books</Link>
                 </div>
             </div>
         </div>
