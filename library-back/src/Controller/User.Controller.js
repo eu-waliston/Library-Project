@@ -18,7 +18,7 @@ const cors = require("cors");
 
 const userRouter = express.Router();
 
-userRouter.post("/magic-library/api/v1/register", async (req, res) => {
+async function CreateUser(req, res) {
     try {
         //get user input
         const { first_name, last_name, email, password } = req.body;
@@ -63,27 +63,27 @@ userRouter.post("/magic-library/api/v1/register", async (req, res) => {
     } catch (error) {
         console.log(error);
     }
-})
+}
 
-userRouter.post("/magic-library/api/v1/login", async () => {
+async function RegisterUser(req, res) {
     try {
         //get user input
-        const {email, password} = req.body;
+        const { email, password } = req.body;
 
         //validate user input
-        if(!eamil && !password) {
+        if (!eamil && !password) {
             res.status(400).send("All input is required");
         }
 
         //validate if user exists in our DB
         const user = await User.findOne({ email });
 
-        if(user && (await bcrypt.compare(password, user.password))) {
+        if (user && (await bcrypt.compare(password, user.password))) {
             //create a token
             const token = jwt.sign(
-                {user_id: user._id, email},
+                { user_id: user._id, email },
                 process.env.TOKEN_KEY,
-                {expiresIn: "5h"}
+                { expiresIn: "5h" }
             );
 
             //save user token
@@ -95,8 +95,11 @@ userRouter.post("/magic-library/api/v1/login", async () => {
 
         return res.status(400).send("Invalid Credencials")
     } catch (error) {
-        console.log({message: error});
+        console.log({ message: error });
     }
-})
+}
 
-module.exports = userRouter;
+module.exports = {
+    CreateUser,
+    RegisterUser
+};
