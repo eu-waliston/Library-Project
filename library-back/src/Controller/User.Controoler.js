@@ -65,3 +65,38 @@ userRouter.post("/magic-library/api/v1/register", async (req, res) => {
     }
 })
 
+userRouter.post("/magic-library/api/v1/login", async () => {
+    try {
+        //get user input
+        const {email, password} = req.body;
+
+        //validate user input
+        if(!eamil && !password) {
+            res.status(400).send("All input is required");
+        }
+
+        //validate if user exists in our DB
+        const user = await User.findOne({ email });
+
+        if(user && (await bcrypt.compare(password, user.password))) {
+            //create a token
+            const token = jwt.sign(
+                {user_id: user._id, email},
+                process.env.TOKEN_KEY,
+                {expiresIn: "5h"}
+            );
+
+            //save user token
+            user.token = token;
+
+            //user
+            return res.status(200).json(user);
+        }
+
+        return res.status(400).send("Invalid Credencials")
+    } catch (error) {
+        console.log({message: error});
+    }
+})
+
+module.exports = userRouter;
