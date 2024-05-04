@@ -20,3 +20,29 @@
   - vercel
   - AWS
   - Render API
+
+## STEPS
+
+Após clonar o projeto ou fazer o download, execute os seguintes passos: 
+
+### Back
+
+```
+
+  1 - npm i (instalar as dependencias)
+  2 - npm run start
+
+  link padrão: http://localhost:1337/
+
+```
+
+### Front
+
+```
+
+  1 - npm i (instalar as dependencias)
+  2 - npm run start
+
+  link padrão: http://localhost:8080/ ou 80
+
+```
