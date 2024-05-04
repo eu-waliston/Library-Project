@@ -3,7 +3,7 @@
   "info": {
     "version": "0.0.1",
     "title": "Magic Library",
-    "description": "API Documentation",
+    "description": "Documentação V1",
     "contact": {
       "name": "Waliston Euripedes"
     }
@@ -16,74 +16,73 @@
   ],
   "schemas": ["http"],
   "paths": {
-    "/user": {
+    "/magic-library/api/v1/register": {
       "get": {
-        "description": "Lista de Usuarios",
-        "operationId": "ListaUsuarios",
-        "parameters": [
-          {
-            "name": "id",
-            "id": "query",
-            "description": "Usuario ID",
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Sucesso",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "date_created": {
-                      "type": "string",
-                      "description": "Data de criação",
-                      "example": "2021-09-08"
-                    },
-                    "name": {
-                      "type": "string",
-                      "description": "Nome do usuario",
-                      "example": "Nome teste"
-                    },
-                    "idade": {
-                      "type": "number",
-                      "description": "Idade do usuario",
-                      "example": 30
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "error": {
-                      "type": "string",
-                      "description": "Objeto de erro",
-                      "example": "Null"
-                    },
-                    "message": {
-                      "type": "string",
-                      "description": "Mensagem de erro",
-                      "example": "Server not Work"
-                    },
-                    "status": {
-                      "type": "number",
-                      "description": "Idade do usuario",
-                      "example": 30
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
+        "description": "Registra um novo usuário",
+        "tags": ["User"]
+      }
+    },
+    "/magic-library/api/v1/login": {
+      "post": {
+        "description": "Faz login do usuário criado, caso as credenciais estejam corretas",
+        "tags": ["User"]
+      }
+    },
+    "/magic-library/api/v1/get-a-user": {
+      "get": {
+        "description": "Busca um usuário na base de dados",
+        "tags": ["User"]
+      }
+    },
+    "/magic-library/api/v1/get-all-users": {
+      "get": {
+        "description": "Busca todos os usuários na base de dados",
+        "tags": ["User"]
+      }
+    },
+    "/magic-library/api/v1/update-a-user": {
+      "put": {
+        "description": "Atualiza um usuário na base de dados",
+        "tags": ["User"]
+      }
+    },
+    "/magic-library/api/v1/delete-a-user": {
+      "delete": {
+        "description": "Deleta um usuário na base de dados",
+        "tags": ["User"]
+      }
+    },
+
+    "/magic-library/api/v1/get-a-book": {
+      "get": {
+        "description": "Lista um livro da base de dados",
+        "tags": ["Book"]
+      }
+    },
+    "/magic-library/api/v1/get-all-book": {
+      "get": {
+        "description": "Lista todos os livros da  base de dados",
+        "tags": ["Book"]
+      }
+    },
+
+    "/magic-library/api/v1/create-a-book": {
+      "post": {
+        "description": "Cria um livro novo",
+        "tags": ["Book"]
+      }
+    },
+    "/magic-library/api/v1/update-a-book": {
+      "put": {
+        "description": "Cria um novo livro e salva na base de dados",
+        "tags": ["Book"]
+      }
+    },
+
+    "/magic-library/api/v1/delete-a-book": {
+      "delete": {
+        "description": "Deleta um livro da base de dados",
+        "tags": ["Book"]
       }
     }
   }
