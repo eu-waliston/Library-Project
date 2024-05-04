@@ -15,6 +15,23 @@
       "get": {
         "description": "Registra um usuário na base de dados",
         "tags" : ["User"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "example": "string"
+                },
+                "password": {
+                  "example": "string"
+                }
+              }
+            }
+          }
+        ],
         "responses": {
           "201": {
             "description": "Created"
@@ -40,10 +57,10 @@
               "type": "object",
               "properties": {
                 "email": {
-                  "example": "any"
+                  "example": "string"
                 },
                 "password": {
-                  "example": "any"
+                  "example": "string"
                 }
               }
             }
@@ -63,6 +80,20 @@
       "get": {
         "description": "Busca um usuário na base de dados",
         "tags" : ["User"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "example": "number"
+                }
+              }
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -77,6 +108,20 @@
       "get": {
         "description": "Busca todos os usuários na base de dados",
         "tags" : ["User"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "example": "number"
+                }
+              }
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -125,6 +170,20 @@
       "delete": {
         "description": "Deleta um usuário na base de dados",
         "tags" : ["User"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "example": "number"
+                }
+              }
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -141,6 +200,20 @@
       "get": {
         "description": "Busca um livro na base de dados",
         "tags" : ["Book"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "example": "number"
+                }
+              }
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -155,6 +228,20 @@
       "get": {
         "description": "Busca todos os livros na base de dados",
         "tags" : ["Book"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "example": "number"
+                }
+              }
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -177,19 +264,19 @@
               "type": "object",
               "properties": {
                 "book_name": {
-                  "example": "any"
+                  "example": "string"
                 },
                 "book_author": {
-                  "example": "any"
+                  "example": "string"
                 },
                 "book_id": {
-                  "example": "any"
+                  "example": "number"
                 },
                 "book_pages_number": {
-                  "example": "any"
+                  "example": "number"
                 },
                 "book_category": {
-                  "example": "any"
+                  "example": "array"
                 }
               }
             }
@@ -217,19 +304,19 @@
               "type": "object",
               "properties": {
                 "book_name": {
-                  "example": "any"
+                  "example": "string"
                 },
                 "book_author": {
-                  "example": "any"
+                  "example": "string"
                 },
                 "book_id": {
-                  "example": "any"
+                  "example": "id"
                 },
                 "book_pages_number": {
-                  "example": "any"
+                  "example": "number"
                 },
                 "book_category": {
-                  "example": "any"
+                  "example": "array"
                 }
               }
             }
@@ -249,6 +336,20 @@
       "delete": {
         "description": "Deleta um livro na base de dados",
         "tags" : ["Book"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "example": "number"
+                }
+              }
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
