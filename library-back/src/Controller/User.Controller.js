@@ -99,7 +99,58 @@ async function RegisterUser(req, res) {
     }
 }
 
+async function GetUser(req,res) {
+    let id = req.params.id;
+    try {
+        let user = await User.findById(id)
+        res.status(200).json(user)
+    } catch (error) {
+        res.status(500).json({ message: error })
+    }
+}
+
+async function GetAllUsers(req,res) {
+    try {
+        let allUsers = await User.find();
+        res.status(200).json(allUsers)
+    } catch (error) {
+        res.status(500).json({ message: error })
+    }
+}
+
+async function UpdateUser(req,res) {
+    try {
+        let userUpdated = await User.updateOne(
+            { _id: req.params.id },
+            {
+                $set: {
+                    first_name: req.body.first_name,
+                    last_name: req.body.last_name,
+                    email: req.body.eamil,
+                }
+            }
+
+        )
+        res.status(200).json(userUpdated)
+    } catch (error) {
+        res.status(500).json({message: error})
+    }
+}
+
+async function DeleteUser(req,res) {
+    let id = req.params.id;
+    try {
+        await User.findByIdAndDelete(id)
+        res.status(200).send("Operation Success...")
+    } catch (error) {
+        res.status(500).json({message: error})
+    }
+}
 module.exports = {
     CreateUser,
-    RegisterUser
+    RegisterUser,
+    GetUser,
+    GetAllUsers,
+    UpdateUser,
+    DeleteUser
 };

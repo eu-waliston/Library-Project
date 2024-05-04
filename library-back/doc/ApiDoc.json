@@ -1,0 +1,90 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "version": "0.0.1",
+    "title": "Magic Library",
+    "description": "API Documentation",
+    "contact": {
+      "name": "Waliston Euripedes"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:1337",
+      "description": "Local Server"
+    }
+  ],
+  "schemas": ["http"],
+  "paths": {
+    "/user": {
+      "get": {
+        "description": "Lista de Usuarios",
+        "operationId": "ListaUsuarios",
+        "parameters": [
+          {
+            "name": "id",
+            "id": "query",
+            "description": "Usuario ID",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "date_created": {
+                      "type": "string",
+                      "description": "Data de criação",
+                      "example": "2021-09-08"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Nome do usuario",
+                      "example": "Nome teste"
+                    },
+                    "idade": {
+                      "type": "number",
+                      "description": "Idade do usuario",
+                      "example": 30
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "Objeto de erro",
+                      "example": "Null"
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Mensagem de erro",
+                      "example": "Server not Work"
+                    },
+                    "status": {
+                      "type": "number",
+                      "description": "Idade do usuario",
+                      "example": 30
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

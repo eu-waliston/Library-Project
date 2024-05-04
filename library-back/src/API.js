@@ -17,8 +17,11 @@ API.use(helmet());
 //Routes
 const UserRouter = require("./View/User.View");
 const BookRouter = require("./View/Book.View");
+const DOC = require("./View/Doc.View");
+
 API.use("/", UserRouter);
 API.use("/", BookRouter);
+API.use("/", DOC);
 
 API.listen(process.env.PORT, () => {
     console.log(`API listening on PORT ${process.env.PORT}`);
