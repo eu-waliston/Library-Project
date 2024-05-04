@@ -3,6 +3,7 @@ const cors = require("cors");
 const helmet = require("helmet");
 const path = require("path")
 require("dotenv").config();
+const swaggerAutogen = require('swagger-autogen')();
 
 const API = express();
 

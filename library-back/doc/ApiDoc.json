@@ -1,88 +1,262 @@
 {
-  "openapi": "3.0.1",
+  "swagger": "2.0",
   "info": {
-    "version": "0.0.1",
-    "title": "Magic Library",
-    "description": "Documentação V1",
-    "contact": {
-      "name": "Waliston Euripedes"
-    }
+    "title": "Magic Library API",
+    "description": "Documentação",
+    "version": "1.0.0"
   },
-  "servers": [
-    {
-      "url": "http://localhost:1337",
-      "description": "Local Server"
-    }
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schemes": [
+    "http"
   ],
-  "schemas": ["http"],
   "paths": {
     "/magic-library/api/v1/register": {
       "get": {
-        "description": "Registra um novo usuário",
-        "tags": ["User"]
+        "description": "Registra um usuário na base de dados",
+        "tags" : ["User"],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "409": {
+            "description": "Conflict"
+          }
+        }
       }
     },
     "/magic-library/api/v1/login": {
       "post": {
-        "description": "Faz login do usuário criado, caso as credenciais estejam corretas",
-        "tags": ["User"]
+        "description": "Faz login com o usuário apos testar sua autenticidade",
+        "tags" : ["User"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "example": "any"
+                },
+                "password": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
       }
     },
     "/magic-library/api/v1/get-a-user": {
       "get": {
         "description": "Busca um usuário na base de dados",
-        "tags": ["User"]
+        "tags" : ["User"],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
       }
     },
     "/magic-library/api/v1/get-all-users": {
       "get": {
         "description": "Busca todos os usuários na base de dados",
-        "tags": ["User"]
+        "tags" : ["User"],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
       }
     },
     "/magic-library/api/v1/update-a-user": {
       "put": {
         "description": "Atualiza um usuário na base de dados",
-        "tags": ["User"]
+        "tags" : ["User"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "first_name": {
+                  "example": "any"
+                },
+                "last_name": {
+                  "example": "any"
+                },
+                "eamil": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
       }
     },
     "/magic-library/api/v1/delete-a-user": {
       "delete": {
         "description": "Deleta um usuário na base de dados",
-        "tags": ["User"]
+        "tags" : ["User"],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
       }
     },
+
 
     "/magic-library/api/v1/get-a-book": {
       "get": {
-        "description": "Lista um livro da base de dados",
-        "tags": ["Book"]
+        "description": "Busca um livro na base de dados",
+        "tags" : ["Book"],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
       }
     },
-    "/magic-library/api/v1/get-all-book": {
+    "/magic-library/api/v1/get-all-books": {
       "get": {
-        "description": "Lista todos os livros da  base de dados",
-        "tags": ["Book"]
+        "description": "Busca todos os livros na base de dados",
+        "tags" : ["Book"],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
       }
     },
-
     "/magic-library/api/v1/create-a-book": {
       "post": {
-        "description": "Cria um livro novo",
-        "tags": ["Book"]
+        "description": "Cria um livro na base de dados",
+        "tags" : ["Book"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "book_name": {
+                  "example": "any"
+                },
+                "book_author": {
+                  "example": "any"
+                },
+                "book_id": {
+                  "example": "any"
+                },
+                "book_pages_number": {
+                  "example": "any"
+                },
+                "book_category": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
       }
     },
     "/magic-library/api/v1/update-a-book": {
       "put": {
-        "description": "Cria um novo livro e salva na base de dados",
-        "tags": ["Book"]
+        "description": "Atualiza um livro na base de dados",
+        "tags" : ["Book"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "book_name": {
+                  "example": "any"
+                },
+                "book_author": {
+                  "example": "any"
+                },
+                "book_id": {
+                  "example": "any"
+                },
+                "book_pages_number": {
+                  "example": "any"
+                },
+                "book_category": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
       }
     },
-
     "/magic-library/api/v1/delete-a-book": {
       "delete": {
-        "description": "Deleta um livro da base de dados",
-        "tags": ["Book"]
+        "description": "Deleta um livro na base de dados",
+        "tags" : ["Book"],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
       }
     }
   }
