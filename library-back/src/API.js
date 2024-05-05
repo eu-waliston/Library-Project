@@ -26,8 +26,8 @@ const UserRouter = require("./View/User.View");
 const BookRouter = require("./View/Book.View");
 const DOC = require("./View/Doc.View");
 API.use("/", RootRouter);
-API.use("/", UserRouter);
-API.use("/", BookRouter);
+API.use("/:id", UserRouter);
+API.use("/:id", BookRouter);
 API.use("/", DOC);
 
 API.listen(process.env.PORT, () => {
