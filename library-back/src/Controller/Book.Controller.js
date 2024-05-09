@@ -26,10 +26,9 @@ async function createBook(req, res) {
         subtitle: req.body.subtitle,
         author: req.body.author,
         published: req.body.published,
-        publisher: req.body.book_name,
         pages: req.body.pages,
-        description: req.body.book_name,
-        website: req.body.book_name,
+        description: req.body.description,
+        website: req.body.website,
         category: req.body.category,
     })
 
@@ -51,10 +50,9 @@ async function updateBook(req, res) {
                     subtitle: req.body.subtitle,
                     author: req.body.author,
                     published: req.body.published,
-                    publisher: req.body.book_name,
                     pages: req.body.pages,
-                    description: req.body.book_name,
-                    website: req.body.book_name,
+                    description: req.body.description,
+                    website: req.body.website,
                     category: req.body.category,
                 }
             }

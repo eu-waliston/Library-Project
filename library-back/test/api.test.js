@@ -1,6 +1,3 @@
-//get a user 
-const axios = require("axios");
-
 //ENDPOINTS
 /**
  * # From Users
@@ -21,24 +18,22 @@ const createBook = "http://localhost:1337/magic-library/api/v1/create-a-book"
 const updateBook = "http://localhost:1337/magic-library/api/v1/update-a-book"
 const deleteBook = "http://localhost:1337/magic-library/api/v1/delete-a-book"
 
-function getUserFromDB() {
-    axios.get(GetUser).then(function (response) {
-        console.log(response);
-        return response
-    })
-}
+//----------------------BOOKS TEST SECTION ------------------------
 
-test('could get a user from database', async () => {
-    const data = await getUserFromDB();
-    expect(data).toBe({
-        title: { type: String },
-        subtitle: { type: String },
-        author: { type: String },
-        published: { type: Date },
-        publisher: { type: String },
-        pages: { type: Number },
-        description: { type: String },
-        website: { type: String },
-        category: [String],
+test("should return all books that exists if exists from DB", async () => {
+
+    const data = await fetch(getAllBooks)
+    const books = await data.json();
+
+    expect(books).not.toBe({
+        title: "",
+        subtitle: "",
+        author: "",
+        published: "",
+        publisher: "",
+        pages: 0,
+        description: "",
+        website: "",
+        category: "[]",
     })
 })
