@@ -5,7 +5,7 @@
     "description": "Documentação",
     "version": "1.0.0"
   },
-  "host": "localhost:1337",
+  "host": "localhost:3000",
   "basePath": "/",
   "schemes": [
     "http"
@@ -13,25 +13,7 @@
   "paths": {
     "/magic-library/api/v1/register": {
       "get": {
-        "description": "Registra um usuário na base de dados",
-        "tags" : ["User"],
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "email": {
-                  "example": "string"
-                },
-                "password": {
-                  "example": "string"
-                }
-              }
-            }
-          }
-        ],
+        "description": "",
         "responses": {
           "201": {
             "description": "Created"
@@ -47,8 +29,7 @@
     },
     "/magic-library/api/v1/login": {
       "post": {
-        "description": "Faz login com o usuário apos testar sua autenticidade",
-        "tags" : ["User"],
+        "description": "",
         "parameters": [
           {
             "name": "body",
@@ -57,10 +38,10 @@
               "type": "object",
               "properties": {
                 "email": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "password": {
-                  "example": "string"
+                  "example": "any"
                 }
               }
             }
@@ -78,22 +59,7 @@
     },
     "/magic-library/api/v1/get-a-user": {
       "get": {
-        "description": "Busca um usuário na base de dados",
-        "tags" : ["User"],
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "example": "number"
-                }
-              }
-            }
-          }
-        ],
+        "description": "",
         "responses": {
           "200": {
             "description": "OK"
@@ -106,22 +72,7 @@
     },
     "/magic-library/api/v1/get-all-users": {
       "get": {
-        "description": "Busca todos os usuários na base de dados",
-        "tags" : ["User"],
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "example": "number"
-                }
-              }
-            }
-          }
-        ],
+        "description": "",
         "responses": {
           "200": {
             "description": "OK"
@@ -134,8 +85,7 @@
     },
     "/magic-library/api/v1/update-a-user": {
       "put": {
-        "description": "Atualiza um usuário na base de dados",
-        "tags" : ["User"],
+        "description": "",
         "parameters": [
           {
             "name": "body",
@@ -168,22 +118,7 @@
     },
     "/magic-library/api/v1/delete-a-user": {
       "delete": {
-        "description": "Deleta um usuário na base de dados",
-        "tags" : ["User"],
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "example": "number"
-                }
-              }
-            }
-          }
-        ],
+        "description": "",
         "responses": {
           "200": {
             "description": "OK"
@@ -194,24 +129,15 @@
         }
       }
     },
-
-
-    "/magic-library/api/v1/get-a-book": {
+    "/magic-library/api/v1/get-a-book/{id}": {
       "get": {
-        "description": "Busca um livro na base de dados",
-        "tags" : ["Book"],
+        "description": "",
         "parameters": [
           {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "example": "number"
-                }
-              }
-            }
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -226,22 +152,7 @@
     },
     "/magic-library/api/v1/get-all-books": {
       "get": {
-        "description": "Busca todos os livros na base de dados",
-        "tags" : ["Book"],
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "example": "number"
-                }
-              }
-            }
-          }
-        ],
+        "description": "",
         "responses": {
           "200": {
             "description": "OK"
@@ -254,8 +165,7 @@
     },
     "/magic-library/api/v1/create-a-book": {
       "post": {
-        "description": "Cria um livro na base de dados",
-        "tags" : ["Book"],
+        "description": "",
         "parameters": [
           {
             "name": "body",
@@ -263,20 +173,26 @@
             "schema": {
               "type": "object",
               "properties": {
+                "title": {
+                  "example": "any"
+                },
+                "subtitle": {
+                  "example": "any"
+                },
+                "author": {
+                  "example": "any"
+                },
+                "published": {
+                  "example": "any"
+                },
                 "book_name": {
-                  "example": "string"
+                  "example": "any"
                 },
-                "book_author": {
-                  "example": "string"
+                "pages": {
+                  "example": "any"
                 },
-                "book_id": {
-                  "example": "number"
-                },
-                "book_pages_number": {
-                  "example": "number"
-                },
-                "book_category": {
-                  "example": "array"
+                "category": {
+                  "example": "any"
                 }
               }
             }
@@ -292,31 +208,42 @@
         }
       }
     },
-    "/magic-library/api/v1/update-a-book": {
+    "/magic-library/api/v1/update-a-book/{id}": {
       "put": {
-        "description": "Atualiza um livro na base de dados",
-        "tags" : ["Book"],
+        "description": "",
         "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
           {
             "name": "body",
             "in": "body",
             "schema": {
               "type": "object",
               "properties": {
+                "title": {
+                  "example": "any"
+                },
+                "subtitle": {
+                  "example": "any"
+                },
+                "author": {
+                  "example": "any"
+                },
+                "published": {
+                  "example": "any"
+                },
                 "book_name": {
-                  "example": "string"
+                  "example": "any"
                 },
-                "book_author": {
-                  "example": "string"
+                "pages": {
+                  "example": "any"
                 },
-                "book_id": {
-                  "example": "id"
-                },
-                "book_pages_number": {
-                  "example": "number"
-                },
-                "book_category": {
-                  "example": "array"
+                "category": {
+                  "example": "any"
                 }
               }
             }
@@ -334,22 +261,7 @@
     },
     "/magic-library/api/v1/delete-a-book": {
       "delete": {
-        "description": "Deleta um livro na base de dados",
-        "tags" : ["Book"],
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "example": "number"
-                }
-              }
-            }
-          }
-        ],
+        "description": "",
         "responses": {
           "200": {
             "description": "OK"

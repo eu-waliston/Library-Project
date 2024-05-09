@@ -1,13 +1,6 @@
 const BookModel = require("../Model/Book.Model");
 
-/*
-    #BOOK MODEL
-    book_name,
-    book_author,
-    book_id,
-    book_pages_number,
-    book_category,
-*/
+
 async function getBook(req, res) {
     let id = req.params.id;
     try {
@@ -29,11 +22,15 @@ async function getAllBooks(req, res) {
 
 async function createBook(req, res) {
     const newBook = new BookModel({
-        book_name: req.body.book_name,
-        book_author: req.body.book_author,
-        book_id: req.body.book_id,
-        book_pages_number: req.body.book_pages_number,
-        book_category: req.body.book_category,
+        title: req.body.title,
+        subtitle: req.body.subtitle,
+        author: req.body.author,
+        published: req.body.published,
+        publisher: req.body.book_name,
+        pages: req.body.pages,
+        description: req.body.book_name,
+        website: req.body.book_name,
+        category: req.body.category,
     })
 
     try {
@@ -50,28 +47,32 @@ async function updateBook(req, res) {
             { _id: req.params.id },
             {
                 $set: {
-                    book_name: req.body.book_name,
-                    book_author: req.body.book_author,
-                    book_id: req.body.book_id,
-                    book_pages_number: req.body.book_pages_number,
-                    book_category: req.body.book_category,
+                    title: req.body.title,
+                    subtitle: req.body.subtitle,
+                    author: req.body.author,
+                    published: req.body.published,
+                    publisher: req.body.book_name,
+                    pages: req.body.pages,
+                    description: req.body.book_name,
+                    website: req.body.book_name,
+                    category: req.body.category,
                 }
             }
 
         )
-        res.status(200).json(bookUpdated)
+        res.status(200).send(bookUpdated)
     } catch (error) {
-        res.status(500).json({message: error})
+        res.status(500).json({ message: error })
     }
 }
 
-async function deleteBook(req,res) {
+async function deleteBook(req, res) {
     let id = req.params.id;
     try {
         await BookModel.findByIdAndDelete(id)
         res.status(200).send("Operation Success...")
     } catch (error) {
-        res.status(500).json({message: error})
+        res.status(500).json({ message: error })
     }
 }
 

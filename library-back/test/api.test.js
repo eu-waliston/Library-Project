@@ -17,18 +17,28 @@ const DeleteUser = "http://localhost:1337/magic-library/api/v1/delete-a-user"
  */
 const getBook = "http://localhost:1337/magic-library/api/v1/get-a-book"
 const getAllBooks = "http://localhost:1337/magic-library/api/v1/get-all-books"
-const createBook  = "http://localhost:1337/magic-library/api/v1/create-a-book"
+const createBook = "http://localhost:1337/magic-library/api/v1/create-a-book"
 const updateBook = "http://localhost:1337/magic-library/api/v1/update-a-book"
 const deleteBook = "http://localhost:1337/magic-library/api/v1/delete-a-book"
 
-function getUserFromDB(){
-    axios.get(GetUser).then(function(response) {
+function getUserFromDB() {
+    axios.get(GetUser).then(function (response) {
         console.log(response);
         return response
     })
 }
 
-test('could get a user from database', async() => {
+test('could get a user from database', async () => {
     const data = await getUserFromDB();
-    expect(data).toBe()
+    expect(data).toBe({
+        title: { type: String },
+        subtitle: { type: String },
+        author: { type: String },
+        published: { type: Date },
+        publisher: { type: String },
+        pages: { type: Number },
+        description: { type: String },
+        website: { type: String },
+        category: [String],
+    })
 })
