@@ -1,6 +1,5 @@
 import React from "react";
 import "./User.scss";
-import logo from "./Yg6I.gif";
 import { Link } from "react-router-dom";
 
 const Login = () => {
