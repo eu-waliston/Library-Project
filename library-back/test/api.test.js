@@ -37,3 +37,7 @@ test("should return all books that exists if exists from DB", async () => {
         category: "[]",
     })
 })
+
+test("should return a user from DB", async () => {
+      
+})

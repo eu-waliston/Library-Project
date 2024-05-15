@@ -29,27 +29,26 @@
     }
 
     .btn__mbks {
-        position: relative;
-        top: 60px;
-        height: 50px;
-        width: 130px;
-        border: none;
-        border-radius: 10px;
-        padding: 20px;
-        text-decoration: none;
+      position: relative;
+      top: 60px;
+      border: none;
+      border-radius: 10px;
+      padding: 20px;
+      text-decoration: none;
 
-        font-size: .8rem;
-        text-transform: uppercase;
+      font-size: 0.8rem;
+      text-transform: uppercase;
 
-        background-color: $btn--color;
-        color: $text--color-1;
-   
-        box-shadow: 5px 5px 20px rgba(0,0,0, 0.4);
-        &:hover {
-            cursor: pointer;
-            opacity: 0.9;
-            transition: .9s;
-        }
+      background-color: $btn--color;
+      color: $text--color-1;
+      font-family: $normal--font;
+
+      box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
+      &:hover {
+        cursor: pointer;
+        opacity: 0.9;
+        transition: 0.9s;
+      }
     }
   }
 }
